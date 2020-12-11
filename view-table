@@ -1,0 +1,41 @@
+mysql> create table store(order_no int(5), code  varchar(10), item varchar(20), quantity int(2), price int(5), discount int(2), MRP int(5),primary key(order_no));
+Query OK, 0 rows affected, 5 warnings (3.11 sec)
+mysql> insert into store values(90001,'AX5432','SSHH',2,649,30,879);
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into store values(90002,'BY3471','TTAA',1,559,25,720);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into store values(90003,'CZ6312','WWCC',2,432,50,832);
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into store values(90004,'DL7481','HHEE',4,1345,60,1675);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into store values(90005,'EQ4954','MMAA',3,800,30,1255);
+Query OK, 1 row affected (0.19 sec)
+mysql> select * from store;
++----------+--------+------+----------+-------+----------+------+
+| order_no | code   | item | quantity | price | discount | MRP  |
++----------+--------+------+----------+-------+----------+------+
+|    90001 | AX5432 | SSHH |        2 |   649 |       30 |  879 |
+|    90002 | BY3471 | TTAA |        1 |   559 |       25 |  720 |
+|    90003 | CZ6312 | WWCC |        2 |   432 |       50 |  832 |
+|    90004 | DL7481 | HHEE |        4 |  1345 |       60 | 1675 |
+|    90005 | EQ4954 | MMAA |        3 |   800 |       30 | 1255 |
++----------+--------+------+----------+-------+----------+------+
+mysql> create view itm_qty as select item,quantity from store;
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> select * from itm_qty;
++------+----------+
+| item | quantity |
++------+----------+
+| SSHH |        2 |
+| TTAA |        1 |
+| WWCC |        2 |
+| HHEE |        4 |
+| MMAA |        3 |
++------+----------+
+mysql> drop view itm_qty;
+Query OK, 0 rows affected (0.36 sec)
